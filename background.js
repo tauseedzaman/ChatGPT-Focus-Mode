@@ -22,7 +22,7 @@ chrome.action.onClicked.addListener(async(tab) => {
             text: nextState,
         });
 
-        if (nextState === "ON") {
+        if (nextState === "ON" || nextState === "OFF") {
             chrome.scripting.executeScript({
                 files: ["inject.js"],
                 target: {
@@ -32,4 +32,18 @@ chrome.action.onClicked.addListener(async(tab) => {
 
         }
     }
+    // // after change this works
+    // document.querySelectorAll("#__next > div.overflow-hidden.w-full.h-full.relative > div.flex.h-full.flex-1.flex-col.md\\:pl-\\[260px\\] > main > div.flex-1.overflow-hidden > div > div > div > div:nth-child(even)")
+
+    // // at the first try this works
+    // document.querySelectorAll("#__next > div.overflow-hidden.w-full.h-full.relative > div.flex.h-full.flex-1.flex-col.md\\:pl-\\[260px\\] > main > div.flex-1.overflow-hidden > div > div > div:nth-child(even)")
+
+
+
+    // document.getElementsByTagName("textarea")[0].addEventListener("keyup", function(event) {
+    //     if (event.keyCode === 13) {
+    //       console.log("Enter key was pressed!");
+    //       // call your function here
+    //     }
+    //   });
 });
